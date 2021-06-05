@@ -106,7 +106,7 @@ ParenBalResult_e IsParenBal(const char* str, size_t len)
       }
       else
       {
-         parenPrev = malloc(len * sizeof(Paren_t*));
+         parenPrev = malloc((len / 2) * sizeof(Paren_t*));
          if (parenPrev)
          {
             for (size_t i = 0; i < len; i++)
