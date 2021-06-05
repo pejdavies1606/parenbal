@@ -2,6 +2,7 @@ Challenge: Given a string of various parentheses, write a function to determine 
 Interlocking parens are not allowed, so you can't just count the number of each.  
 Bonus points if you do it with parser combinators.
 
+```
 "()" => True
 "(())" => True
 "()()" => True
@@ -11,6 +12,7 @@ Bonus points if you do it with parser combinators.
 "[(])" => False
 ")(" => False
 "()[[]](<><[()]>)" => True
+```
 
 ```
 psq95@psq-kde ~/d/parenbal> cmake -B _build
