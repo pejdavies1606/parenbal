@@ -10,7 +10,7 @@ typedef struct TestCase
    const ParenBalResult_e output;
 } TestCase_s;
 
-#define TEST_TABLE_LEN 10
+#define TEST_TABLE_LEN 11
 static const TestCase_s TEST_TABLE[TEST_TABLE_LEN] =
 {
    { "", PARENBAL_SUCCESS },
@@ -22,7 +22,8 @@ static const TestCase_s TEST_TABLE[TEST_TABLE_LEN] =
    { "(", PARENBAL_MISMATCH },
    { "[(])", PARENBAL_INTERLOCK },
    { ")(", PARENBAL_MISMATCH },
-   { "()[[]](<><[()]>)" , PARENBAL_SUCCESS }
+   { "()[[]](<><[()]>)" , PARENBAL_SUCCESS },
+   { "(-)" , PARENBAL_MISMATCH }
 };
 
 int main(int argc, char **argv)
