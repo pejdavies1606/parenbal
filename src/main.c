@@ -23,7 +23,7 @@ static const TestCase_s TEST_TABLE[TEST_TABLE_LEN] =
    { "[(])", PARENBAL_INTERLOCK },
    { ")(", PARENBAL_MISMATCH },
    { "()[[]](<><[()]>)" , PARENBAL_SUCCESS },
-   { "(-)" , PARENBAL_MISMATCH }
+   { "(-)" , PARENBAL_SUCCESS }
 };
 
 int main(int argc, char **argv)

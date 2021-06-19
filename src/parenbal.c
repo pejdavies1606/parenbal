@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 #include "parenbal.h"
 
 #define NUM_PAREN_TYPES 4
@@ -95,21 +96,22 @@ ParenBalResult_e IsParenBal(const char* str, size_t len)
    ParenBalResult_e result = PARENBAL_UNKNOWN;
    Paren_t *parenNow = NULL;
    Paren_t **parenPrev = NULL;
+   size_t parenPrevLen = len / 2 + 1;
    size_t numParens = 0;
    bool newType = false;
    if (str)
    {
-      if (len == 0 &&
-         !IsParen(str[0]))
+      if (len == 0 && !IsParen(str[0]))
       {
          result = PARENBAL_SUCCESS;
       }
       else
       {
-         parenPrev = malloc((len / 2) * sizeof(Paren_t*));
+         parenPrev = malloc(parenPrevLen * sizeof(Paren_t*));
+         memset(parenPrev, 0, parenPrevLen * sizeof(Paren_t*));
          if (parenPrev)
          {
-            for (size_t i = 0; i < len && numParens < (len / 2); i++)
+            for (size_t i = 0; i < len && numParens < parenPrevLen; i++)
             {
                if (IsParen(str[i]))
                {
